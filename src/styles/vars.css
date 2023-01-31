@@ -1,0 +1,58 @@
+:root {
+    /* Base Colors */
+    --primary-lightest: #feffff;
+    --primary-light: #bfffff;
+    --primary: #00FFFF;
+    --primary-dark: #008b8b;
+
+    --secondary-light: #998cff;
+    --secondary: #5500FF;
+    --secondary-dark: #2b217e;
+    --secondary-darkest: #09001a;
+
+    /* assign to other vars */
+    --white: var(--primary-lightest);
+	--black: var(--secondary-darkest);
+
+    --background-white: var(--white);
+    --background-light: #d5d3d9;
+    --background: #f4f7f7;
+    --background-dark: #2d2c2e;
+    --background-black: var(--black);
+    
+    --foreground: var(--primary-lightest);
+
+    /* Base Styles */
+    --padding-1: 8px;
+    --padding-2: 16px;
+    --padding-3: 32px;
+
+    --border-1: 2px;
+	--border-2: 4px;
+	--border-3: 6px;
+    --border-radius-outline: 6px;
+	--border-radius: 4px;
+
+    --border-color: var(--black) ;
+
+    /* COURSES */
+
+
+    /* LESSONS */
+
+
+    /* CONTENT */
+    --content-padding: var(--padding-2);
+
+
+    /* BITES */
+	--bite-width: 600px;
+    --bite-height: 400px;
+
+	--input-height: 50px;
+	--input-height-tall: 170px;
+	--input-height-max: 500px;
+	--input-padding: 10px;
+
+
+}
