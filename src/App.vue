@@ -4,16 +4,14 @@ import "./styles/fonts.css";
 import "./styles/base.css";
 
 import Content from './content/Content.vue';
+import Logo from './components/Logo.vue';
 </script>
 
 <template>
   <div class="container">
-    <nav class="navbar gutter title">
-      <slot>
-        <h1>FreeTalk<span class="fun">.fun</span></h1>
-      </slot>
-    </nav>
-    <div class="sidebar-left title"></div>
+    <div class="sidebar-left title">
+      <Logo />
+    </div>
     <main class="main-content content">
       <Content />
     </main>
@@ -26,8 +24,8 @@ import Content from './content/Content.vue';
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 8fr 3fr; /* sidebar-left | main-content | sidebar-right */
-  grid-template-rows: 60px 1fr; /* last row fill all extra space */
+  grid-template-columns: 2fr 8fr 2fr; /* sidebar-left | main-content | sidebar-right */
+  grid-template-rows: 1fr; /* last row fill all extra space */
   grid-row-gap: 0px;
   grid-column-gap: 20px;
   height: 100vh;
@@ -45,39 +43,22 @@ import Content from './content/Content.vue';
 .sidebar-left {
   grid-column: 1;
   /* border: 2px solid var(--border-color); */
-  padding: var(--padding-2);
-  background-color: var(--background-black);
+  padding: var(--padding-3);
 }
 
 .main-content {
   grid-column: 2;
   /* border: 2px solid var(--border-color); */
   padding: var(--content-padding);
-  background-color: var(--background);
   box-shadow: 0 0 2px 1px var(--black);
   border-radius: var(--border-3);
 }
 
 .sidebar-right {
   grid-column: 3;
-  /* border: 2px solid var(--border-color); */
-  padding: var(--padding-2);
-  background-color: var(--background-black);
+  padding: var(--padding-3);
 }
 
-.fun {
-  font-family: "sensei";
-  font-weight: 400;
-  font-size: 16pt;
-  color: var(--black);
-}
-
-h1 {
-  font-family: "norwester", sans-serif;
-  font-weight: 500;
-  /* font-style: normal; */
-  color: var(--black);
-}
 
 
 </style>
