@@ -1,6 +1,5 @@
 <template>
     <div><span class="logo">FreeTalk</span><span class="fun">.fun</span></div>
-    <p>The FUN Way to LEARN English!</p>
 </template>
 <style scoped>
 
@@ -14,7 +13,8 @@
 .logo {
   font-family: "norwester", sans-serif;
   font-weight: 500;
-  font-size: 42px;
+  font-size: 36px;
   color: var(--secondary);
 }
+
 </style>

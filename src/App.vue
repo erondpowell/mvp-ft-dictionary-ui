@@ -3,10 +3,9 @@ import "./styles/vars.css";
 import "./styles/fonts.css";
 import "./styles/base.css";
 
-import Content from './content/Content.vue';
+import Content from './widgets/Content.vue';
 import Logo from './components/Logo.vue';
 </script>
-
 <template>
   <div class="container">
     <div class="sidebar-left title">
@@ -16,10 +15,10 @@ import Logo from './components/Logo.vue';
       <Content />
     </main>
     <aside class="sidebar-right title">
+      <ContentTopBar />
     </aside>
   </div>
 </template>
-
 <style scoped>
 
 .container {
@@ -58,7 +57,6 @@ import Logo from './components/Logo.vue';
   grid-column: 3;
   padding: var(--padding-3);
 }
-
 
 
 </style>
