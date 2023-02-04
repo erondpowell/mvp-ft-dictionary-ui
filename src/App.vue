@@ -3,19 +3,20 @@ import "./styles/vars.css";
 import "./styles/fonts.css";
 import "./styles/base.css";
 
+import SideBarLeft from './widgets/SideBarLeft.vue';
 import Content from './widgets/Content.vue';
-import Logo from './components/Logo.vue';
+import SideBarRight from './widgets/SideBarRight.vue';
 </script>
 <template>
   <div class="container">
     <div class="sidebar-left title">
-      <Logo />
+      <SideBarLeft />
     </div>
     <main class="main-content content">
       <Content />
     </main>
     <aside class="sidebar-right title">
-      <ContentTopBar />
+      <SideBarRight />
     </aside>
   </div>
 </template>
@@ -31,32 +32,16 @@ import Logo from './components/Logo.vue';
   width: 100vw;
 }
 
-.navbar {
-  grid-column: 1 / 4; /* spans all columns */
-  padding: 10px;
-  display: grid;
-  align-items: center;  /* vert align */
-  justify-items: start; /* horiz align */
-}
-
 .sidebar-left {
   grid-column: 1;
-  /* border: 2px solid var(--border-color); */
-  padding: var(--padding-3);
 }
 
 .main-content {
   grid-column: 2;
-  /* border: 2px solid var(--border-color); */
-  padding: var(--content-padding);
-  box-shadow: 0 0 2px 1px var(--black);
-  border-radius: var(--border-3);
 }
 
 .sidebar-right {
   grid-column: 3;
-  padding: var(--padding-3);
 }
-
 
 </style>

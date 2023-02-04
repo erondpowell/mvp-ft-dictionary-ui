@@ -1,5 +1,5 @@
 <template>
-    <div><span class="logo">FreeTalk</span><span class="fun">.fun</span></div>
+    <a href="https://www.devtalk.fun"><span class="logo">FreeTalk</span><span class="fun">.fun</span></a>
 </template>
 <style scoped>
 
