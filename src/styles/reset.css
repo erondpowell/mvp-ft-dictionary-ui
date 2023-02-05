@@ -1,0 +1,94 @@
+/*reset.css*/
+/* RESETS */
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    position: static;
+    margin: 0px;
+    padding: 0px;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* html {
+  font: 62.5% / 1.15 "brandon-grotesque" sans-serif;
+  background-color: var(--primary);
+} */
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "brandon-grotesque", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #f5f5f5; /* @TODO */
+    color: #4d4d4d;  /* @TODO */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+body a {
+    font-family: "brandon-grotesque", sans-serif;  /* @TODO */
+    font-weight: 700;
+    font-style: normal;
+    }
+    
+a {
+    text-decoration: none;
+    }
+  
+
+h1 {
+    font-size: 32px;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+  border: none;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+input[type="text"] {
+  border-radius: var(--border-radius);
+  padding: 5px;
+}
+
+@media screen and (min-width: 620px) {
+  body {
+    font-size: 1.9rem;
+    line-height: 1.31579;
+  }
+}
+/*END RESETS*/
