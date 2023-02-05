@@ -1,29 +1,22 @@
 <script setup>
 import FTButton from '../components/FTButton.vue'
 
+import LanguageSelector from '../components/LanguageSelector.vue'
 import '../styles/vars.css'
 
 </script>
+
 <template>
     <div class="top-bar">
-        <div class="options-panel">
-            <form>
-                <label>Language</label>
-                <select type="select">
-                <option value="Chinese">English</option>
-                <option value="Chinese">中文</option>
-                <option value="Spanish">Espanol</option>
-                </select>
-            </form>
+        <div class="language-selector">
+            <LanguageSelector />
         </div>
-        <div>
-            <h2 class="dict-title">The FreeTalk Dictionary</h2>
-            <div class="input-area">
+        <h2 class="dict-title">FreeTalk Dictionary</h2>
+        <div class="search-bar">
                 <form>
-                    <input id="name" type="text" class="input-search-bar">
-                    <FTButton label="Search" class="action-button"/>
+                    <input id="name" type="text" class="search-bar-input">
+                    <FTButton label="Search" class="search-bar-action-button"/>
                 </form>
-            </div>
         </div>
     </div>
 </template>
@@ -31,15 +24,10 @@ import '../styles/vars.css'
 <style scoped>
 
 .dict-title {
-  font-size: 36px;
-  font-family: Brandon Grotesque;
+  font-family: Brandon Grotesque, sans-serif;
   font-weight: 500;
   color: var(--black);
   padding: 0px 0px 20px 0px;
-}
-
-.fun {
-    font-family: sensei;
 }
 
 .top-bar {
@@ -50,48 +38,34 @@ import '../styles/vars.css'
   align-items: center;
 }
 
-.options-panel {
+.language-selector {
     align-self: flex-end;
 }
 
-label {
-    margin: 0px 10px
-}
-
-select {
-    border-radius: 10px;
-    font-size: 12px;
-    padding: 3px 8px;
-}
-
-.input-area {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.input-search-bar {
-    width: 250px;
+.search-bar {
     height: 40px;
-    border-radius: 10px;
-    border: 2px solid var(--texture)
+    background-color: blue;
 }
 
-.action-button {
+.search-bar-input {
+    font-size: 12px;
+    width: 250px;
+    border-radius: 10px;
+    border: 2px solid var(--texture);
+}
+
+.search-bar-action-button {
     background-color: var(--background);
     border-radius: 10px;
     border: 2px solid var(--texture);
-    margin: 0px 0px 0px 10px;
-    padding: 5px 10px;
-    height: 40px;
 }
 
-.action-button:hover {
+.search-bar-action-button:hover {
     background-color: var(--texture);
 }
 
-.action-button:active {
+.search-bar-action-button:active {
     background-color: var(--texture);
-
 }
 
 </style>

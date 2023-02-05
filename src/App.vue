@@ -1,7 +1,6 @@
 <script setup>
 import "./styles/vars.css";
 import "./styles/fonts.css";
-import "./styles/base.css";
 
 import SideBarLeft from './widgets/SideBarLeft.vue';
 import Content from './widgets/Content.vue';
@@ -38,6 +37,7 @@ import SideBarRight from './widgets/SideBarRight.vue';
 
 .main-content {
   grid-column: 2;
+  margin: 0 0 30px 0;
 }
 
 .sidebar-right {

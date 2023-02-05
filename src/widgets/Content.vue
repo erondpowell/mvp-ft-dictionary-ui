@@ -1,20 +1,21 @@
 <script setup>
 
-import Card from '../components/Card.vue'
-import ContentTopBar from './ContentTopBar.vue'
+import Card from '../components/Card.vue';
+import ContentTopBar from './ContentTopBar.vue';
+import ContentBite from './ContentBite.vue';
 
 import '../styles/vars.css'
+
+import  { not_found }  from '../stores/dictionary.js'
 
 </script>
 
 <template>
   <div class="content-grid-container">
-    <div class="row1">
-      <ContentTopBar class="row1"/>
-    </div>
-    <Card class="row2">
-      Card Content
-     </Card>
+    <ContentTopBar class="row1"/>
+    <ContentBite class="row2">
+      <Card>{{ not_found }}</Card>
+    </ContentBite>
   </div>
 </template>
 
@@ -36,9 +37,8 @@ import '../styles/vars.css'
 
 .row2 {
   grid-row: 2;
-  max-height: 100%;
+  height: 100%;
   width: 100%;
 }
-
 
 </style>
