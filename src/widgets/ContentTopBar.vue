@@ -36,7 +36,7 @@ import '../styles/vars.css'
 }
 
 .dict-title {
-  font-family: Brandon Grotesque, sans-serif;
+  font-family: "brandon Grotesque", sans-serif;
   font-weight: 500;
   color: var(--black);
   padding: 0px 0px 0px 0px;

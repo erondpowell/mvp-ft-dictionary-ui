@@ -3,6 +3,7 @@
 import Card from '../components/Card.vue';
 import ContentTopBar from './ContentTopBar.vue';
 import ContentBite from './ContentBite.vue';
+import Pill from '../components/Pill.vue';
 
 import '../styles/vars.css'
 
@@ -18,8 +19,8 @@ let {word, explanation, pos, examples } = getTerm;
     <ContentBite class="row2">
       <Card>
         <div class="title">
-          <h2>{{ word }}</h2>
-          <p>{{ pos }}</p>
+            <h2>{{ word }}</h2>
+            <Pill :pos="pos" />
         </div>
         <p>{{ explanation }}</p>
         <p v-for="ex in examples">{{ ex.sentence }}</p>
@@ -53,6 +54,7 @@ let {word, explanation, pos, examples } = getTerm;
 .title {
   display: flex;
   align-items:center;
+  justify-content: space-between;
 }
 
 </style>

@@ -1,8 +1,12 @@
-/* brandon groteque */
-@import url("https://use.typekit.net/mie3bof.css");
-
 /* norwester */
 @import url('https://fonts.cdnfonts.com/css/norwester');
 
 /* sensei */
 @import url('https://fonts.cdnfonts.com/css/sensei');
+
+
+/* "brandon Grotesque" */
+@font-face {
+    font-family: "brandon Grotesque";
+    src: url("https://use.typekit.net/mie3bof.css");
+}

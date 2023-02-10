@@ -5,7 +5,7 @@ export const notFound = ref("Word Not Found");
 export const getTerm = {
   word: "water",
   explanation: "Water is the chemical H2O.",
-  pos: "noun",
+  pos: "NOUN",
   examples: [
     { id: 1, sentence: "Fish live in water." },
     { id: 2, sentence: "People drink water everyday." },

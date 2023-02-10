@@ -2,8 +2,12 @@
     /* Base Colors */
     --primary-lightest: #feffff;
     --primary: #00FFFF;
+    --primary-darkest: #003e3e;
     
+    --secondary-lightest: #ebe1ff;
     --secondary: #5500FF;
+    --secondary-darkest: #1d0056;
+
 
     /* assign to other vars */
     --white: var(--primary-lightest);
