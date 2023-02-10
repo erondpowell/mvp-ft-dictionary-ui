@@ -6,7 +6,9 @@ import ContentBite from './ContentBite.vue';
 
 import '../styles/vars.css'
 
-import  { not_found }  from '../stores/dictionary.js'
+import  { notFound, getTerm }  from '../stores/store.js';
+
+let {word, explanation, pos, examples } = getTerm;
 
 </script>
 
@@ -14,7 +16,14 @@ import  { not_found }  from '../stores/dictionary.js'
   <div class="content-grid-container">
     <ContentTopBar class="row1"/>
     <ContentBite class="row2">
-      <Card>{{ not_found }}</Card>
+      <Card>
+        <div class="title">
+          <h2>{{ word }}</h2>
+          <p>{{ pos }}</p>
+        </div>
+        <p>{{ explanation }}</p>
+        <p v-for="ex in examples">{{ ex.sentence }}</p>
+      </Card>
     </ContentBite>
   </div>
 </template>
@@ -39,6 +48,11 @@ import  { not_found }  from '../stores/dictionary.js'
   grid-row: 2;
   height: 100%;
   width: 100%;
+}
+
+.title {
+  display: flex;
+  align-items:center;
 }
 
 </style>

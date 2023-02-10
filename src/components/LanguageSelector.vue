@@ -2,7 +2,7 @@
 
 import { ref } from 'vue';
 
-const languages = ["English", "中文", "Espanol"]
+import { languages } from '../stores/store.js';
 
 </script>
 <template>

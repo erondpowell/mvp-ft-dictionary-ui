@@ -15,10 +15,10 @@
     outline: none;
 }
 
-/* html {
+html {
   font: 62.5% / 1.15 "brandon-grotesque" sans-serif;
   background-color: var(--primary);
-} */
+}
 
 body {
     height: 100%;
@@ -56,7 +56,6 @@ button {
   overflow: visible;
   background: transparent;
   color: inherit;
-  font: inherit;
   line-height: normal;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
@@ -75,15 +74,11 @@ textarea {
   font-family: inherit;
 }
 
+/* 
 button,
 input {
   overflow: visible;
-}
-
-input[type="text"] {
-  border-radius: var(--border-radius);
-  padding: 5px;
-}
+} */
 
 @media screen and (min-width: 620px) {
   body {

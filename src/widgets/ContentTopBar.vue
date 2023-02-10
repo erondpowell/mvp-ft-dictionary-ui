@@ -23,13 +23,6 @@ import '../styles/vars.css'
 
 <style scoped>
 
-.dict-title {
-  font-family: Brandon Grotesque, sans-serif;
-  font-weight: 500;
-  color: var(--black);
-  padding: 0px 0px 20px 0px;
-}
-
 .top-bar {
   padding: var(--padding-2);
   display: flex;
@@ -42,21 +35,25 @@ import '../styles/vars.css'
     align-self: flex-end;
 }
 
-.search-bar {
-    height: 40px;
-    background-color: blue;
+.dict-title {
+  font-family: Brandon Grotesque, sans-serif;
+  font-weight: 500;
+  color: var(--black);
+  padding: 0px 0px 0px 0px;
 }
 
 .search-bar-input {
-    font-size: 12px;
     width: 250px;
+    height: inherit;
     border-radius: 10px;
     border: 2px solid var(--texture);
+    padding: 5px;
 }
 
 .search-bar-action-button {
-    background-color: var(--background);
     border-radius: 10px;
+    padding: 5px;
+    background-color: var(--background);
     border: 2px solid var(--texture);
 }
 
@@ -66,6 +63,22 @@ import '../styles/vars.css'
 
 .search-bar-action-button:active {
     background-color: var(--texture);
+}
+
+@media (max-width: 620px) {
+    .search-bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-bar-input {
+        width: 100%;
+    }
+.search-bar-action-button {
+        width: 100%;
+    }
 }
 
 </style>
