@@ -4,6 +4,7 @@ import Card from '../components/Card.vue';
 import ContentTopBar from './ContentTopBar.vue';
 import ContentBite from './ContentBite.vue';
 import Pill from '../components/Pill.vue';
+import Carousel from './Carousel.vue'
 
 import '../styles/vars.css'
 
@@ -23,7 +24,8 @@ let {word, explanation, pos, examples } = getTerm;
             <Pill :pos="pos" />
         </div>
         <p>{{ explanation }}</p>
-        <p v-for="ex in examples">{{ ex.sentence }}</p>
+        <!-- <p v-for="ex in examples">{{ ex.sentence }}</p> -->
+        <Carousel :content="examples" />
       </Card>
     </ContentBite>
   </div>
