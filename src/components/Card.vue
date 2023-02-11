@@ -11,11 +11,10 @@
 .card {
   width: 100%;
   height: 100%;
-  background-color: var(--background);
-  border-radius: var(--border-3);
+  background-color: var(--foreground);
   padding: var(--padding-3);
-  border-radius: 20px;
-  border: 2px solid #e6e7e9;
+  border: 2px solid var(--border-color);
+  border-radius: var(--b-r-3);
 }
 
 </style>

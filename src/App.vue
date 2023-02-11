@@ -1,10 +1,12 @@
 <script setup>
+
 import "./styles/vars.css";
 import "./styles/fonts.css";
 
 import SideBarLeft from './widgets/SideBarLeft.vue';
 import Content from './widgets/Content.vue';
 import SideBarRight from './widgets/SideBarRight.vue';
+
 </script>
 <template>
   <div class="container">
@@ -27,8 +29,7 @@ import SideBarRight from './widgets/SideBarRight.vue';
   grid-template-rows: 1fr; /* last row fill all extra space */
   grid-row-gap: 0px;
   grid-column-gap: 20px;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
 }
 
 .sidebar-left {

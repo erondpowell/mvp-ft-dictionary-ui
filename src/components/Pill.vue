@@ -1,14 +1,14 @@
 <script setup>
 
 const props = defineProps({
-  pos: String
+    val: String
 })
 
 </script>
 <template>
     <div class="pill">
         <p class="content">
-            {{ pos }}
+            {{ val }}
         </p>
     </div>
 </template>
@@ -16,7 +16,7 @@ const props = defineProps({
 
 .pill {
     border: 2px solid var(--secondary);
-    border-radius: var(--border-3);
+    border-radius: var(--b-r-3);
     display: flex;
     align-items: center; 
     justify-content: center;

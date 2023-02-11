@@ -16,25 +16,25 @@
 }
 
 html {
-  font: 62.5% / 1.15 "brandon Grotesque" sans-serif;
+  font: 62.5% / 1.15 "Brandon Grotesque" sans-serif;
   background-color: var(--primary);
 }
 
 body {
     height: 100%;
     width: 100%;
-    font-family: "brandon Grotesque", sans-serif;
+    font-family: "Brandon Grotesque", sans-serif;
     font-weight: 400;
     font-style: normal;
     line-height: 1;
-    background-color: #f5f5f5; /* @TODO */
-    color: #4d4d4d;  /* @TODO */
+    background-color: var(--background); /* @TODO */
+    color: var(--base-text-color);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
   
 body a {
-    font-family: "brandon Grotesque", sans-serif;  /* @TODO */
+    font-family: "Brandon Grotesque", sans-serif;  /* @TODO */
     font-weight: 700;
     font-style: normal;
     }

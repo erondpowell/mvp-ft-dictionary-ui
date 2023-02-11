@@ -36,7 +36,7 @@ import '../styles/vars.css'
 }
 
 .dict-title {
-  font-family: "brandon Grotesque", sans-serif;
+  font-family: "Brandon Grotesque", sans-serif;
   font-weight: 500;
   color: var(--black);
   padding: 0px 0px 0px 0px;
@@ -45,24 +45,24 @@ import '../styles/vars.css'
 .search-bar-input {
     width: 250px;
     height: inherit;
-    border-radius: 10px;
-    border: 2px solid var(--texture);
+    border: 2px solid var(--border);
+    border-radius: var(--b-r-2);
     padding: 5px;
 }
 
 .search-bar-action-button {
-    border-radius: 10px;
     padding: 5px;
     background-color: var(--background);
-    border: 2px solid var(--texture);
+    border: 2px solid var(--border);
+    border-radius: var(--b-r-2);
 }
 
 .search-bar-action-button:hover {
-    background-color: var(--texture);
+    background-color: var(--border);
 }
 
 .search-bar-action-button:active {
-    background-color: var(--texture);
+    background-color: var(--border);
 }
 
 @media (max-width: 620px) {

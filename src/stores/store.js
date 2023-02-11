@@ -7,8 +7,17 @@ export const getTerm = {
   explanation: "Water is the chemical H2O.",
   pos: "NOUN",
   examples: [
-    { id: 1, sentence: "Fish live in water." },
-    { id: 2, sentence: "People drink water everyday." },
+    {
+      id: 1,
+      sentence: "Fish live in the water.",
+      imageUrl:
+        "https://cdn.directus.io/docs/v9/app-guide/user-directory/user-directory-20220222A/user-directory-20220222A.webp",
+    },
+    {
+      id: 2,
+      sentence: "People drink water everyday.",
+      imageUrl: null,
+    },
   ],
 };
 
