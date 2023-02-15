@@ -15,10 +15,6 @@ export const Dictionary = {
     searchHistory: [],
   },
 
-  // isFoundMsg: function (searchInput) {
-  //   return `"We could not find "${searchInput}" in the dictionary. Please try your search again!"`;
-  // },
-
   lookup: function (searchInput) {
     searchInput = searchInput.trim().toLowerCase();
 
