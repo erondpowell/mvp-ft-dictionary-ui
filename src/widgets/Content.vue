@@ -8,11 +8,9 @@ import Media from '../components/Media.vue';
 
 import '../styles/vars.css'
 
-import  { notFound, getTerm }  from '../stores/store.js';
+// import  { notFound, term, biteContent }  from '../stores/store.js';
 
-let {word, explanation, pos, examples  } = getTerm;
-
-console.log(examples);
+// let {word, explanation, pos, examples  } = term;
 
 </script>
 
@@ -20,7 +18,18 @@ console.log(examples);
   <div class="content-grid-container">
     <ContentTopBar class="row1"/>
     <ContentBite class="row2">
-      <Card class="content-area">
+      <Card>
+        <p>
+          Please search for a word!
+        </p>
+      </Card>
+    <!--
+      <Card v-show="!biteContent" class="content-area">
+        <p>
+          Please search for a word!
+        </p>
+      </Card>
+      <Card v-show="biteContent" class="content-area">
         <div>
           <div class="title">
             <h2>{{ word }}</h2>
@@ -31,19 +40,13 @@ console.log(examples);
         <div>
           <h3>Examples</h3>
           <div v-for="ex in examples" class="example-flex-container">
-            <!-- <Media 
-              class="example-media"
-              :image="ex.imageUrl"
-              /> 
-              <p >{{ ex.sentence }}</p>
-            </div>
-            -->
               <img v-if="ex.imageUrl" :src="ex.imageUrl" class="media-box">
-              <div v-else class="placeholder media-box">Image unavailable</div>
-              <p >{{ ex.sentence }}</p>
+              <div v-else class="placeholder media-box">Image Unavailable</div>
+              <p>{{ ex.sentence }}</p>
           </div>
         </div>
-        </Card>
+      </Card> 
+    -->
     </ContentBite>
   </div>
 </template>

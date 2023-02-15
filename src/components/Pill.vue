@@ -23,7 +23,7 @@ const props = defineProps({
 }
 
 .content {
-    padding: 0px 3px;
+    padding: 2px 6px;
     font-size: 20px;
     font-weight: 700;
 }

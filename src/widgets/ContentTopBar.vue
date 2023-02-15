@@ -1,11 +1,21 @@
 <script setup>
-import FTButton from '../components/FTButton.vue'
+import { ref } from 'vue';
 
-import LanguageSelector from '../components/LanguageSelector.vue'
-import '../styles/vars.css'
+// import { term, notFound, biteContent } from '../stores/store.js'
+// Refactor for new data model.
+
+import { Dictionary } from '../stores/store.js';
+import FTButton from '../components/FTButton.vue';
+import LanguageSelector from '../components/LanguageSelector.vue';
+
+const dictionary = Dictionary;
+const formInput = ref('');
+
+let getTerm = () => {
+    dictionary.lookup(formInput.value);
+}
 
 </script>
-
 <template>
     <div class="top-bar">
         <div class="language-selector">
@@ -14,8 +24,8 @@ import '../styles/vars.css'
         <h2 class="dict-title">FreeTalk Dictionary</h2>
         <div class="search-bar">
                 <form>
-                    <input id="name" type="text" class="search-bar-input">
-                    <FTButton label="Search" class="search-bar-action-button"/>
+                    <input id="name" type="text" class="search-bar-input" v-model="formInput">
+                    <FTButton label="Search" class="search-bar-action-button" :eventHandler="getTerm"/>
                 </form>
         </div>
     </div>
@@ -76,6 +86,7 @@ import '../styles/vars.css'
     .search-bar-input {
         width: 100%;
     }
+
 .search-bar-action-button {
         width: 100%;
     }
