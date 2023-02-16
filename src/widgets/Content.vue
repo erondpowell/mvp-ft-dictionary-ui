@@ -8,9 +8,7 @@ import Media from '../components/Media.vue';
 
 import '../styles/vars.css'
 
-// import  { notFound, term, biteContent }  from '../stores/store.js';
-
-// let {word, explanation, pos, examples  } = term;
+import  { Dictionary }  from '../stores/store.js';
 
 </script>
 
@@ -18,18 +16,17 @@ import '../styles/vars.css'
   <div class="content-grid-container">
     <ContentTopBar class="row1"/>
     <ContentBite class="row2">
-      <Card>
+      <Card v-show="!Dictionary.isPresentTermValid" class="content-area">
         <p>
           Please search for a word!
         </p>
       </Card>
-    <!--
-      <Card v-show="!biteContent" class="content-area">
+      <Card v-show="Dictionary.isPresentTermValid">
         <p>
-          Please search for a word!
+          {{ Dictionary.presentTermData }}
         </p>
       </Card>
-      <Card v-show="biteContent" class="content-area">
+      <!-- <Card v-show="Dictionary.state.presentTermData" class="content-area">
         <div>
           <div class="title">
             <h2>{{ word }}</h2>
@@ -45,8 +42,8 @@ import '../styles/vars.css'
               <p>{{ ex.sentence }}</p>
           </div>
         </div>
-      </Card> 
-    -->
+      </Card>  -->
+   
     </ContentBite>
   </div>
 </template>
@@ -73,7 +70,7 @@ import '../styles/vars.css'
   width: 100%;
 }
 
-.title {
+/* .title {
   display: flex;
   align-items:center;
   justify-content: space-between;
@@ -83,7 +80,7 @@ import '../styles/vars.css'
   display: grid;
   grid-template-rows: 2fr 8fr;
   display: grid;
-  align-items: start;  /* vert align */
+  align-items: start;  
 }
 
 .example-flex-container {
@@ -111,6 +108,6 @@ import '../styles/vars.css'
     align-items: center;
     color: var(--text-muted);
     background-color: var(--foreground-muted);
-}
+} */
 
 </style>
