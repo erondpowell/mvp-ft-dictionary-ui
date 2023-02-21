@@ -13,6 +13,7 @@ const formInput = ref('');
 
 let getTerm = () => {
     dictionary.lookup(formInput.value);
+    console.log('GET biteInfo:', dictionary.biteInfo)
 }
 
 </script>

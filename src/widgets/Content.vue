@@ -7,44 +7,48 @@ import Pill from '../components/Pill.vue';
 import Media from '../components/Media.vue';
 
 import '../styles/vars.css'
-
+import { reactive } from 'vue';
 import  { Dictionary }  from '../stores/store.js';
 
-</script>
+const dictionary = Dictionary;
 
+let biteInfo = dictionary.biteInfo;
+
+</script>
 <template>
   <div class="content-grid-container">
     <ContentTopBar class="row1"/>
     <ContentBite class="row2">
-      <Card v-show="!Dictionary.isPresentTermValid" class="content-area">
+      <Card v-show="!dictionary.isPresentTermValid" class="content-area">
         <p>
-          Please search for a word!
+          {{ dictionary.biteInfo.msg }}
         </p>
       </Card>
-      <Card v-show="Dictionary.isPresentTermValid">
-        <p>
-          {{ Dictionary.presentTermData }}
-        </p>
-      </Card>
-      <!-- <Card v-show="Dictionary.state.presentTermData" class="content-area">
-        <div>
-          <div class="title">
-            <h2>{{ word }}</h2>
-            <Pill :val="pos" />
-          </div>
-          <p>{{ explanation }}</p>
-        </div>
-        <div>
-          <h3>Examples</h3>
-          <div v-for="ex in examples" class="example-flex-container">
-              <img v-if="ex.imageUrl" :src="ex.imageUrl" class="media-box">
-              <div v-else class="placeholder media-box">Image Unavailable</div>
-              <p>{{ ex.sentence }}</p>
-          </div>
-        </div>
-      </Card>  -->
-   
     </ContentBite>
+      <Card v-show="dictionary.isPresentTermValid">
+      <p v-for="item of dictionary.biteInfo">
+        {{ item }}
+      </p>
+    </Card> 
+    <!-- 
+      <Card v-show="dictionary.isPresentTermValid" class="content-area">
+      <div>
+        <div class="title">
+          <h2>{{ word }}</h2>
+          <Pill :val="pos" />
+        </div>
+        <p>{{ explanation }}</p>
+      </div>
+      <div>
+        <h3>Examples</h3>
+        <div v-for="ex in examples" class="example-flex-container">
+            <img v-if="ex.imageUrl" :src="ex.imageUrl" class="media-box">
+            <div v-else class="placeholder media-box">Image Unavailable</div>
+            <p>{{ ex.sentence }}</p>
+        </div>
+      </div>
+    </Card>
+  -->
   </div>
 </template>
 
@@ -70,7 +74,8 @@ import  { Dictionary }  from '../stores/store.js';
   width: 100%;
 }
 
-/* .title {
+/* 
+.title {
   display: flex;
   align-items:center;
   justify-content: space-between;
@@ -108,6 +113,7 @@ import  { Dictionary }  from '../stores/store.js';
     align-items: center;
     color: var(--text-muted);
     background-color: var(--foreground-muted);
-} */
+}
+*/
 
 </style>

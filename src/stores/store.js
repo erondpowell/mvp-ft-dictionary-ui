@@ -4,40 +4,47 @@ import { dictionaryEntries } from "./dictionary.js";
 
 export const languages = ["English", "中文", "Espanol"];
 
-// export const notFound = ref("Word Not Found");
-
 export const Dictionary = reactive({
-  presentTermData: {},
+  biteInfo: { msg: "Please search for a word." },
   isPresentTermValid: false,
   searchHistory: [],
 
   lookup: function (searchInput) {
     searchInput = searchInput.trim().toLowerCase();
 
-    this.presentTermData = null;
+    if (searchInput === "") {
+      return;
+    }
+
+    this.biteInfo = null;
     this.isPresentTermValid = false;
 
     // check the dictionary
     for (let entry of dictionaryEntries) {
       if (entry.word === searchInput) {
-        this.presentTermData = entry;
+        this.biteInfo = entry;
         this.isPresentTermValid = true;
+        this.searchHistory.push(this.biteInfo);
+        console.log("array:", this.searchHistory);
         break;
       }
     }
 
     if (this.isPresentTermValid === false) {
-      this.presentTermData = `It looks like ${searchInput} is not in the dictionary`;
-      console.log(this.presentTermData);
+      this.biteInfo = {
+        msg: `It looks like '${searchInput}' is not in the dictionary`,
+      };
     }
+
+    console.log(this.biteInfo);
 
     // Sanity checks
     // console.log(
     //   this.isPresentTermValid
-    //     ? this.presentTermData
+    //     ? this.biteInfo
     //     : `${searchInput} is not a term in the dictionary`
     // );
-    // console.log("term data", this.presentTermData);
+    // console.log("term data", this.biteInfo);
     // console.log("validator", this.isPresentTermValid);
   },
 

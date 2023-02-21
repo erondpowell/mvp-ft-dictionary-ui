@@ -7,6 +7,10 @@ import SideBarLeft from './widgets/SideBarLeft.vue';
 import Content from './widgets/Content.vue';
 import SideBarRight from './widgets/SideBarRight.vue';
 
+import { Dictionary } from "./stores/store.js";
+
+const dictionary = Dictionary;
+
 </script>
 <template>
   <div class="container">
@@ -17,7 +21,13 @@ import SideBarRight from './widgets/SideBarRight.vue';
       <Content />
     </main>
     <aside class="sidebar-right title">
-      <SideBarRight />
+      <SideBarRight>
+        <div v-for="term in dictionary.searchHistory">
+          <a>
+            {{ term.word }}
+          </a>
+        </div>
+      </SideBarRight>
     </aside>
   </div>
 </template>

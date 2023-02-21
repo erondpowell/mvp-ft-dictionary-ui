@@ -2,8 +2,9 @@
 
 const props = defineProps({
   label: String,
-  eventHandler: Function
+  eventHandler: Function,
 });
+
 
 </script>
 
@@ -12,5 +13,7 @@ const props = defineProps({
 </template>
 
 <style scoped>
+
+
 
 </style>

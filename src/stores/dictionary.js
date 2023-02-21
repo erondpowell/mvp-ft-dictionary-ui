@@ -1,3 +1,5 @@
+import { reactive } from "vue";
+
 export const dictionaryEntries = [
   {
     word: "water",
