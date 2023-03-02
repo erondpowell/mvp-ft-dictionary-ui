@@ -2,12 +2,8 @@
 
 import Card from '../components/Card.vue';
 import ContentTopBar from './ContentTopBar.vue';
-import ContentBite from './ContentBite.vue';
-import Pill from '../components/Pill.vue';
-import Media from '../components/Media.vue';
 
 import '../styles/vars.css'
-import { reactive } from 'vue';
 import  { Dictionary }  from '../stores/store.js';
 
 const dictionary = Dictionary;
@@ -18,37 +14,18 @@ let biteInfo = dictionary.biteInfo;
 <template>
   <div class="content-grid-container">
     <ContentTopBar class="row1"/>
-    <ContentBite class="row2">
+    <div class="row2">
       <Card v-show="!dictionary.isPresentTermValid" class="content-area">
         <p>
           {{ dictionary.biteInfo.msg }}
         </p>
       </Card>
-    </ContentBite>
       <Card v-show="dictionary.isPresentTermValid">
-      <p v-for="item of dictionary.biteInfo">
-        {{ item }}
-      </p>
-    </Card> 
-    <!-- 
-      <Card v-show="dictionary.isPresentTermValid" class="content-area">
-      <div>
-        <div class="title">
-          <h2>{{ word }}</h2>
-          <Pill :val="pos" />
-        </div>
-        <p>{{ explanation }}</p>
-      </div>
-      <div>
-        <h3>Examples</h3>
-        <div v-for="ex in examples" class="example-flex-container">
-            <img v-if="ex.imageUrl" :src="ex.imageUrl" class="media-box">
-            <div v-else class="placeholder media-box">Image Unavailable</div>
-            <p>{{ ex.sentence }}</p>
-        </div>
-      </div>
-    </Card>
-  -->
+          <p v-for="item of dictionary.biteInfo">
+          {{ item }}
+          </p>
+      </Card> 
+    </div>
   </div>
 </template>
 
@@ -70,50 +47,8 @@ let biteInfo = dictionary.biteInfo;
 
 .row2 {
   grid-row: 2;
-  height: 100%;
+  height: 600px;
+  max-height: 100%;
   width: 100%;
 }
-
-/* 
-.title {
-  display: flex;
-  align-items:center;
-  justify-content: space-between;
-}
-
-.content-area {
-  display: grid;
-  grid-template-rows: 2fr 8fr;
-  display: grid;
-  align-items: start;  
-}
-
-.example-flex-container {
-  display: flex;
-  margin: 50px 0px;
-}
-
-.example-flex-container p {
-  display: flex;
-  margin: 0px 30px;
-  padding: 15px;
-}
-
-.media-box {
-    width: 40%;
-    border: 2px solid var(--border-color);
-    border-radius: var(--b-r-3);
-}
-
-.placeholder {
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-muted);
-    background-color: var(--foreground-muted);
-}
-*/
-
 </style>

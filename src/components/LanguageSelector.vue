@@ -1,5 +1,8 @@
 <script setup>
 
+// DO NOT USE THIS COMPONENT
+// @TODO PLEASE SEE TICKET FRE-95
+
 import { ref } from 'vue';
 
 import { languages } from '../stores/store.js';

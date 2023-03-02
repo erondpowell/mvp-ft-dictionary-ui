@@ -1,37 +1,27 @@
 <script setup>
 import { ref } from 'vue';
 
-// import { term, notFound, biteContent } from '../stores/store.js'
-// Refactor for new data model.
-
 import { Dictionary } from '../stores/store.js';
 import FTButton from '../components/FTButton.vue';
-import LanguageSelector from '../components/LanguageSelector.vue';
 
 const dictionary = Dictionary;
 const formInput = ref('');
 
 let getTerm = () => {
     dictionary.lookup(formInput.value);
-    console.log('GET biteInfo:', dictionary.biteInfo)
+    console.log('GET biteInfo:', dictionary.biteInfo);
 }
 
 </script>
 <template>
     <div class="top-bar">
-        <div class="language-selector">
-            <LanguageSelector />
-        </div>
         <h2 class="dict-title">FreeTalk Dictionary</h2>
-        <div class="search-bar">
-                <form>
-                    <input id="name" type="text" class="search-bar-input" v-model="formInput">
-                    <FTButton label="Search" class="search-bar-action-button" :eventHandler="getTerm"/>
-                </form>
-        </div>
+        <form class="search-bar">
+            <input id="name" type="text" class="search-bar-input" v-model="formInput">
+            <FTButton label="Search" class="search-bar-action-button" :eventHandler="getTerm"/>
+        </form>
     </div>
 </template>
-
 <style scoped>
 
 .top-bar {
@@ -42,14 +32,11 @@ let getTerm = () => {
   align-items: center;
 }
 
-.language-selector {
-    align-self: flex-end;
-}
-
 .dict-title {
   font-family: "Brandon Grotesque", sans-serif;
   font-weight: 500;
   color: var(--black);
+  margin: 40px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
 }
 
@@ -62,6 +49,7 @@ let getTerm = () => {
 }
 
 .search-bar-action-button {
+    margin: 0px 0px 0px 5px;
     padding: 5px;
     background-color: var(--background);
     border: 2px solid var(--border);
@@ -77,19 +65,20 @@ let getTerm = () => {
 }
 
 @media (max-width: 620px) {
+
     .search-bar {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
 
     .search-bar-input {
-        width: 100%;
+        width: 80%;
     }
 
-.search-bar-action-button {
-        width: 100%;
+    .search-bar-action-button {
+            align-self: center;
     }
 }
 

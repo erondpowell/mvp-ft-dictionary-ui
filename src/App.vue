@@ -3,10 +3,7 @@
 import "./styles/vars.css";
 import "./styles/fonts.css";
 
-import SideBarLeft from './widgets/SideBarLeft.vue';
 import Content from './widgets/Content.vue';
-import SideBarRight from './widgets/SideBarRight.vue';
-
 import { Dictionary } from "./stores/store.js";
 
 const dictionary = Dictionary;
@@ -14,21 +11,13 @@ const dictionary = Dictionary;
 </script>
 <template>
   <div class="container">
-    <div class="sidebar-left title">
-      <SideBarLeft />
+    <div class="sidebar-left">
     </div>
-    <main class="main-content content">
+    <main class="main-content">
       <Content />
     </main>
-    <aside class="sidebar-right title">
-      <SideBarRight>
-        <div v-for="term in dictionary.searchHistory">
-          <a>
-            {{ term.word }}
-          </a>
-        </div>
-      </SideBarRight>
-    </aside>
+    <div class="sidebar-right">
+    </div> 
   </div>
 </template>
 <style scoped>
