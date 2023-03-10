@@ -1,8 +1,6 @@
 import { reactive } from "vue";
 
-import { directus } from "../model/directus.js";
-
-import { dictionaryEntries } from "./dictionary.js";
+import { directus } from "../services/directus.js";
 
 export const languages = ["English", "中文", "Espanol"];
 
@@ -12,51 +10,27 @@ export const Dictionary = reactive({
   searchHistory: [],
 
   lookup: async function (searchInput) {
-    let dummy_data = await directus
+    searchInput = searchInput.trim().toLowerCase();
+    if (searchInput === "") {
+      return;
+    }
+
+    // @TODO replace query param
+    let getWord = await directus
       .items("dummy_data")
-      .readByQuery({ limit: -1 });
+      .readByQuery({ search: searchInput });
 
-    this.biteInfo = dummy_data;
-    this.isPresentTermValid = true;
+    let wordDetails = getWord.data;
 
-    // searchInput = searchInput.trim().toLowerCase();
+    console.log(wordDetails);
 
-    // if (searchInput === "") {
-    //   return;
-    // }
-
-    // this.biteInfo = null;
-    // this.isPresentTermValid = false;
-
-    // // check the dictionary
-    // for (let entry of dictionaryEntries) {
-    //   if (entry.word === searchInput) {
-    //     this.biteInfo = entry;
-    //     this.isPresentTermValid = true;
-    //     this.searchHistory.push(this.biteInfo);
-    //     console.log("array:", this.searchHistory);
-    //     break;
-    //   }
-    // }
-
-    // if (this.isPresentTermValid === false) {
-    //   this.biteInfo = {
-    //     msg: `It looks like '${searchInput}' is not in the dictionary`,
-    //   };
-    // }
-
-    // console.log(this.biteInfo);
-
-    // Sanity checks
-    // console.log(
-    //   this.isPresentTermValid
-    //     ? this.biteInfo
-    //     : `${searchInput} is not a term in the dictionary`
-    // );
-    // console.log("term data", this.biteInfo);
-    // console.log("validator", this.isPresentTermValid);
+    if (wordDetails.length > 0) {
+      this.biteInfo = wordDetails;
+      this.isPresentTermValid = true;
+    } else {
+      this.biteInfo = {
+        msg: `It looks like '${searchInput}' is not in the dictionary`,
+      };
+    }
   },
-
-  // updateHistory
-  // presentTerm
 });
