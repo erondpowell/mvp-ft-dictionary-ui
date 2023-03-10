@@ -1,5 +1,7 @@
 import { reactive } from "vue";
 
+import { directus } from "../model/directus.js";
+
 import { dictionaryEntries } from "./dictionary.js";
 
 export const languages = ["English", "中文", "Espanol"];
@@ -9,34 +11,41 @@ export const Dictionary = reactive({
   isPresentTermValid: false,
   searchHistory: [],
 
-  lookup: function (searchInput) {
-    searchInput = searchInput.trim().toLowerCase();
+  lookup: async function (searchInput) {
+    let dummy_data = await directus
+      .items("dummy_data")
+      .readByQuery({ limit: -1 });
 
-    if (searchInput === "") {
-      return;
-    }
+    this.biteInfo = dummy_data;
+    this.isPresentTermValid = true;
 
-    this.biteInfo = null;
-    this.isPresentTermValid = false;
+    // searchInput = searchInput.trim().toLowerCase();
 
-    // check the dictionary
-    for (let entry of dictionaryEntries) {
-      if (entry.word === searchInput) {
-        this.biteInfo = entry;
-        this.isPresentTermValid = true;
-        this.searchHistory.push(this.biteInfo);
-        console.log("array:", this.searchHistory);
-        break;
-      }
-    }
+    // if (searchInput === "") {
+    //   return;
+    // }
 
-    if (this.isPresentTermValid === false) {
-      this.biteInfo = {
-        msg: `It looks like '${searchInput}' is not in the dictionary`,
-      };
-    }
+    // this.biteInfo = null;
+    // this.isPresentTermValid = false;
 
-    console.log(this.biteInfo);
+    // // check the dictionary
+    // for (let entry of dictionaryEntries) {
+    //   if (entry.word === searchInput) {
+    //     this.biteInfo = entry;
+    //     this.isPresentTermValid = true;
+    //     this.searchHistory.push(this.biteInfo);
+    //     console.log("array:", this.searchHistory);
+    //     break;
+    //   }
+    // }
+
+    // if (this.isPresentTermValid === false) {
+    //   this.biteInfo = {
+    //     msg: `It looks like '${searchInput}' is not in the dictionary`,
+    //   };
+    // }
+
+    // console.log(this.biteInfo);
 
     // Sanity checks
     // console.log(
