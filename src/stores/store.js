@@ -11,26 +11,38 @@ export const Dictionary = reactive({
 
   lookup: async function (searchInput) {
     searchInput = searchInput.trim().toLowerCase();
+
     if (searchInput === "") {
       return;
     }
 
-    // @TODO replace query param
-    let getWord = await directus
-      .items("dummy_data")
-      .readByQuery({ search: searchInput });
+    let getWord = async () => {
+      try {
+        const response = await fetch(
+          "http://0.0.0.0:8055/flows/trigger/202296a7-eccf-4514-936c-4e4d27eafb77",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ searchInput }),
+          }
+        );
+        if (!response.ok) {
+          this.biteInfo = {
+            msg: `It looks like there was a problem searching for '${searchInput}'. Please try again!`,
+          };
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        this.biteInfo = await data;
+        this.isPresentTermValid = true;
+        console.log(this.biteInfo);
+      } catch (error) {
+        console.error(`Error: ${error.message}`);
+      }
+    };
 
-    let wordDetails = getWord.data;
-
-    console.log(wordDetails);
-
-    if (wordDetails.length > 0) {
-      this.biteInfo = wordDetails;
-      this.isPresentTermValid = true;
-    } else {
-      this.biteInfo = {
-        msg: `It looks like '${searchInput}' is not in the dictionary`,
-      };
-    }
+    getWord();
   },
 });
