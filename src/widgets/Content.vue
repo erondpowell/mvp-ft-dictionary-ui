@@ -8,8 +8,6 @@ import  { Dictionary }  from '../stores/store.js';
 
 const dictionary = Dictionary;
 
-let biteInfo = dictionary.biteInfo;
-
 </script>
 <template>
   <div class="content-grid-container">
@@ -21,9 +19,13 @@ let biteInfo = dictionary.biteInfo;
         </p>
       </Card>
       <Card v-show="dictionary.isPresentTermValid">
-          <p v-for="item of dictionary.biteInfo">
+        <h1>{{ dictionary.biteInfo.term }}</h1>
+        <p>{{ dictionary.biteInfo.pos }}</p>
+        <p>{{ dictionary.biteInfo.explanation }}</p>
+        <p>{{ dictionary.biteInfo.connotation }}</p>
+        <p v-for="item of dictionary.biteInfo.examples">
           {{ item }}
-          </p>
+        </p>
       </Card> 
     </div>
   </div>
