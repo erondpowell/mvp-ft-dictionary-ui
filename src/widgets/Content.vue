@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 
 import Card from '../components/Card.vue';
 import ContentTopBar from './ContentTopBar.vue';
@@ -6,27 +7,31 @@ import ContentTopBar from './ContentTopBar.vue';
 import '../styles/vars.css'
 import  { Dictionary }  from '../stores/store.js';
 
-const dictionary = Dictionary;
+const validationMsg = Dictionary.validationMsg;
+const presentTermIsValid = Dictionary.presentTermIsValid;
+const biteInfo = Dictionary.biteInfo;
 
 </script>
 <template>
   <div class="content-grid-container">
     <ContentTopBar class="row1"/>
     <div class="row2">
-      <Card v-show="!dictionary.isPresentTermValid" class="content-area">
+      <Card v-show="!presentTermIsValid" class="content-area">
         <p>
-          {{ dictionary.biteInfo.msg }}
+          {{ validationMsg }}
         </p>
       </Card>
-      <Card v-show="dictionary.isPresentTermValid">
-        <h1>{{ dictionary.biteInfo.term }}</h1>
-        <p>{{ dictionary.biteInfo.pos }}</p>
-        <p>{{ dictionary.biteInfo.explanation }}</p>
-        <p>{{ dictionary.biteInfo.connotation }}</p>
-        <p v-for="item of dictionary.biteInfo.examples">
-          {{ item }}
-        </p>
-      </Card> 
+      <Card v-show="presentTermIsValid">
+        <h1>{{biteInfo.term}}</h1>
+        <div v-for="meaning in biteInfo.meanings">
+          <div v-for="detail in meaning.details">
+            <p>{{ detail.pos[0] }}</p>
+            <p>{{ detail.explanation }}</p>
+            <p>{{ detail.connotation }}</p>
+          </div>
+          <div v-for="example in meaning.examples">{{ example.sentence }}</div>
+        </div>
+      </Card>
     </div>
   </div>
 </template>
