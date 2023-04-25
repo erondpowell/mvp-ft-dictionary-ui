@@ -53,11 +53,9 @@ export const Dictionary = {
           throw new Error("Network response was not ok.");
         }
         const data = await response.json();
-        // Check if data is termInfo or an invalid msg.
+        // Checks whether response contains biteInfo or an "error" msg.
         if (data.msg) {
           this.validationMsg.value = data.msg;
-          // this.presentTermIsValid = false;
-          // this.biteInfo = null;
         } else {
           this.biteInfo.value = data;
           this.presentTermIsValid.value = true;
