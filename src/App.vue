@@ -6,6 +6,12 @@ import "./styles/fonts.css";
 import Content from './widgets/Content.vue';
 import { Dictionary } from "./stores/store.js";
 
+import { useHead } from '@unhead/vue'
+useHead({
+  title: 'The FUN way to Learn English!',
+  link: [{rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" }]
+})
+
 const dictionary = Dictionary;
 
 </script>
@@ -25,7 +31,6 @@ const dictionary = Dictionary;
 .container {
   display: grid;
   grid-template-columns: 2fr 8fr 2fr; /* sidebar-left | main-content | sidebar-right */
-  grid-template-rows: 1fr; /* last row fill all extra space */
   grid-row-gap: 0px;
   grid-column-gap: 20px;
   min-height: 100vh;
